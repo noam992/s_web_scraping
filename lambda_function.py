@@ -68,7 +68,7 @@ class web_scraping_to_s3():
                         self.prefix = f"{date_path}{image_name}"
 
                         # ingest loaded files to s3
-                        downloading_images.dumping_img_files_to_s3(r)
+                        web_scraping_to_s3.dumping_img_files_to_s3(r)
 
                 except:
                     pass
@@ -98,7 +98,7 @@ class web_scraping_to_s3():
         print("The url images are: ", self.image_arr)
 
         # image downloading start
-        downloading_images.download_images()
+        web_scraping_to_s3.download_images()
 
 
 def lambda_handler(event, context):
