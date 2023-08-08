@@ -7,7 +7,6 @@ import json
 
 # Define env parameters / values
 # first hard coded. later move to env parameter in AWS configuration
-web_url = "https://www.jamesallen.com/loose-diamonds/oval-cut/1.01-carat-f-color-si1-clarity-sku-18275902"
 bucket_name = 'sarine-web-scraping'
 
 # CREATE FOLDER
