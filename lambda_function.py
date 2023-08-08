@@ -14,8 +14,8 @@ bucket_name = 'sarine-web-scraping'
 class web_scraping_to_s3():
 
     # constructor
-    def __init__(self, *args):
-        self.url = args[0]
+    def __init__(self):
+        self.url = ''
         self.image_arr = []
         self.bucket_name = bucket_name
         self.prefix = ''
@@ -68,7 +68,7 @@ class web_scraping_to_s3():
                         self.prefix = f"{date_path}{image_name}"
 
                         # ingest loaded files to s3
-                        web_scraping_to_s3.dumping_img_files_to_s3(r)
+                        downloading_images.dumping_img_files_to_s3(r)
 
                 except:
                     pass
@@ -86,7 +86,9 @@ class web_scraping_to_s3():
 
 
     # extract relevant content from HTML
-    def main(self):
+    def main(self, ref):
+        self.url = ref
+
         # content of URL
         r = requests.get(self.url)
 
@@ -98,8 +100,7 @@ class web_scraping_to_s3():
         print("The url images are: ", self.image_arr)
 
         # image downloading start
-        web_scraping_to_s3.download_images()
-
+        downloading_images.download_images()
 
 def lambda_handler(event, context):
 
@@ -109,11 +110,10 @@ def lambda_handler(event, context):
 
         # Extract the 'ref' value
         ref = body['ref']
-
         print("The ref is:", ref)
 
-        # define class
-        downloading_images = web_scraping_to_s3(web_url)
-
         # CALL MAIN FUNCTION
-        downloading_images.main()
+        downloading_images.main(ref)
+
+# define class
+downloading_images = web_scraping_to_s3()
