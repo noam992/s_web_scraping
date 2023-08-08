@@ -110,6 +110,3 @@ def lambda_handler(event, context):
 
     # CALL MAIN FUNCTION
     downloading_images.main()
-
-
-lambda_handler("", "")
