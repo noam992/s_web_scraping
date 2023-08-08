@@ -3,6 +3,7 @@ import requests
 import boto3
 import uuid
 import datetime
+import json
 
 # Define env parameters / values
 # first hard coded. later move to env parameter in AWS configuration
@@ -102,11 +103,17 @@ class web_scraping_to_s3():
 
 def lambda_handler(event, context):
 
-    ref = event['ref']
-    print("The ref is: ", ref)
+    for record in event['Records']:
+        # Parse the JSON body from the 'body' field
+        body = json.loads(record['body'])
 
-    # define class
-    downloading_images = web_scraping_to_s3(web_url)
+        # Extract the 'ref' value
+        ref = body['ref']
 
-    # CALL MAIN FUNCTION
-    downloading_images.main()
+        print("The ref is:", ref)
+
+        # define class
+        downloading_images = web_scraping_to_s3(web_url)
+
+        # CALL MAIN FUNCTION
+        downloading_images.main()
