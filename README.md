@@ -1,4 +1,5 @@
 # web-scraping-href-extraction
+This repository contains code for web scraping using Selenium to extract a content and images from URL. The technology stack includes AWS Lambda Function, AWS CodeBuild, Selenium library for web scraping, and AWS S3 for storing scraped content.
 
 ## Technology
 
@@ -6,10 +7,6 @@
 - AWS CodeBuild
 - Selenium library for Web Scraping
 - AWS S3 (Simple Storage Service)
-
-## Overview
-
-This repository contains code for web scraping using Selenium to extract a content and images from URL. The technology stack includes AWS Lambda Function, AWS CodeBuild, Selenium library for web scraping, and AWS S3 for storing scraped content.
 
 ### AWS Lambda Function
 
