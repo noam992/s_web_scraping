@@ -7,7 +7,7 @@ import json
 
 # Define env parameters / values
 # first hard coded. later move to env parameter in AWS configuration
-bucket_name = 'sarine-web-scraping'
+bucket_name = '<insert bucket name>'
 
 # CREATE FOLDER
 class web_scraping_to_s3():
